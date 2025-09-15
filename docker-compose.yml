@@ -8,6 +8,8 @@ services:
 
   tests:
     build: .
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
     command: python test_api.py
     depends_on:
       - api
