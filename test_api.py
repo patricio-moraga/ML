@@ -6,7 +6,7 @@ def test_prediction():
               1.095, 0.9053, 8.589, 153.4, 0.006399, 0.04904, 0.05373, 0.01587, 0.03003, 0.006193,
               25.38, 17.33, 184.6, 2019.0, 0.1622, 0.6656, 0.7119, 0.2654, 0.4601, 0.1189]
 
-    response = requests.post("http://api:5000/predict",
+    response = requests.post("http://host.docker.internal:5000/predict",
                              headers={"Content-Type": "application/json"},
                              data=json.dumps({"features": sample}))
     assert response.status_code == 200
