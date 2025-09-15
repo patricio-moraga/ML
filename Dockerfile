@@ -15,3 +15,6 @@ EXPOSE 5000
 
 # Comando para ejecutar la aplicación
 CMD ["python", "app.py"]
+
+# Comando para ejecutar la aplicación, usando la variable de entorno $PORT
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "$PORT"]
