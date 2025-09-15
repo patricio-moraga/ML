@@ -38,7 +38,7 @@ jobs:
         # Bucle para esperar a que el servicio esté disponible
         echo "Esperando a que el servicio esté listo..."
         for i in $(seq 1 30); do
-        if curl --output /dev/null --silent --head --fail http://api:5000/predict; then
+        if curl --output /dev/null --silent --head --fail http://host.docker.internal:5000/predict; then
         echo "✅ Servicio listo después de $i segundos."
         break
         fi
@@ -46,7 +46,7 @@ jobs:
         done
 
         # Si el bucle termina y el servicio no está listo, fallar
-        if ! curl --output /dev/null --silent --head --fail http://api:5000/predict; then
+        if ! curl --output /dev/null --silent --head --fail http://host.docker.internal:5000/predict; then
         echo "❌ El servicio no se inició a tiempo."
         exit 1
         fi
