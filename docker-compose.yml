@@ -10,7 +10,7 @@ services:
     build: .
     extra_hosts:
       - "host.docker.internal:host-gateway"
-    command: python test_api.py
+    command: sh -c "python wait_for_it.py && python test_api.py"
     depends_on:
       - api
     networks:
