@@ -50,7 +50,7 @@ jobs:
         echo "❌ El servicio no se inició a tiempo."
         exit 1
         fi
-        python test_api.py
+        python test_api_localhost.py
         docker stop test-api
 
     - name: Login a Docker Hub
