@@ -25,7 +25,21 @@ jobs:
       run: |
         docker build -t breast-cancer-api .
         docker run -d -p 5000:5000 --name test-api breast-cancer-api
-        sleep 100  # Esperar a que Flask levante
+        # Bucle para esperar a que el servicio esté disponible
+        echo "Esperando a que el servicio esté listo..."
+        for i in $(seq 1 30); do
+        if curl --output /dev/null --silent --head --fail http://localhost:5000/predict; then
+        echo "✅ Servicio listo después de $i segundos."
+        break
+        fi
+        sleep 1
+        done
+
+        # Si el bucle termina y el servicio no está listo, fallar
+        if ! curl --output /dev/null --silent --head --fail http://localhost:5000/predict; then
+        echo "❌ El servicio no se inició a tiempo."
+        exit 1
+        fi
         python test_api.py
         docker stop test-api
 
