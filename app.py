@@ -3,7 +3,7 @@ import joblib
 import numpy as np
 
 # Cargar el modelo y el escalador
-modelo = joblib.load('modelo_logistic_regression.pkl')
+modelo = joblib.load('modelo.pkl')
 escalador = joblib.load('escalador.pkl')
 
 # Crear la app Flask
@@ -48,5 +48,6 @@ def predict():
 # Ejecutar la aplicación
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=True)
+
 
 
