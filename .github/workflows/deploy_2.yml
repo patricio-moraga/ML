@@ -25,7 +25,7 @@ jobs:
       run: |
         docker build -t breast-cancer-api .
         docker run -d -p 5000:5000 --name test-api breast-cancer-api
-        sleep 10  # Esperar a que Flask levante
+        sleep 100  # Esperar a que Flask levante
         python test_api.py
         docker stop test-api
 
