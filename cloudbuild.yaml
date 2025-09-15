@@ -11,3 +11,9 @@ steps:
 - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
   entrypoint: gcloud
   args: ['run', 'deploy', 'mi-api-modelo', '--image', 'us-central1-docker.pkg.dev/$PROJECT_ID/mi-repo-modelos/mi-api-modelo:$COMMIT_SHA', '--platform', 'managed', '--region', 'us-central1', '--allow-unauthenticated']
+
+options:
+  # Usa la opción REGIONAL_USER_OWNED_BUCKET
+  default_logs_bucket_behavior: REGIONAL_USER_OWNED_BUCKET
+  # Si usas una cuenta de servicio personalizada, añádela aquí
+  # service_account: projects/tu-proyecto-id/serviceAccounts/tu-cuenta-de-servicio@tu-proyecto-id.iam.gserviceaccount.com
