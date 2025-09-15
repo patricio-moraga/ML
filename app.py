@@ -10,7 +10,7 @@ escalador = joblib.load('escalador.pkl')
 app = Flask(__name__)
 
 # Ruta para verificar el estado del servicio
-@app.route('/', methods=['GET'])
+@app.route('/predict', methods=['GET'])
 def health_check():
     return jsonify({"status": "ok", "message": "API Breast Cancer Logistic Regression activa"}), 200
 
@@ -48,6 +48,7 @@ def predict():
 # Ejecutar la aplicación
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=True)
+
 
 
 
