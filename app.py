@@ -2,8 +2,6 @@ from flask import Flask, request, jsonify
 import joblib
 import numpy as np
 import os
-import uvicorn
-from fastapi import FastAPI
 
 # Cargar el modelo y el escalador
 modelo = joblib.load('modelo.pkl')
@@ -51,6 +49,7 @@ def predict():
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 8000))
     app.run(host="0.0.0.0", port=port, debug=True)
+
 
 
 
