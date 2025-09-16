@@ -14,7 +14,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 EXPOSE 8000
 
 # Comando para ejecutar la aplicación
-CMD ["python", "app.py"]
+# CMD ["python", "app.py"]
 
 # ... (otras líneas) ...
 CMD uvicorn app:app --host 0.0.0.0 --port $PORT
