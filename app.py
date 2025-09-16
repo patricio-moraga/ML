@@ -45,9 +45,13 @@ def predict():
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
-# Ejecutar la aplicación
-if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000, debug=True)
+# Elige un puerto. Cloud Run proveerá el puerto a través de la variable de entorno PORT.
+# Si no está definida, usa 8000 como valor por defecto para pruebas locales.
+PORT = int(os.environ.get("PORT", 8000))
+
+if __name__ == "__main__":
+    uvicorn.run("main:app", host="0.0.0.0", port=PORT)
+
 
 
 
