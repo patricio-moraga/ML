@@ -14,7 +14,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 EXPOSE 8000
 
 # Comando para ejecutar la aplicación
-# CMD ["python", "app.py"]
+CMD ["python", "app.py"]
 
 # ... (otras líneas) ...
 CMD gunicorn --bind 0.0.0.0:$PORT app:app
