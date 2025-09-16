@@ -16,5 +16,5 @@ EXPOSE 8000
 # Comando para ejecutar la aplicación
 CMD ["python", "app.py"]
 
-# Comando para ejecutar la aplicación, usando la variable de entorno $PORT
-CMD uvicorn app:app --host 0.0.0.0 --port 8000
+# ... (otras líneas) ...
+CMD uvicorn main:app --host 0.0.0.0 --port $PORT
