@@ -45,10 +45,11 @@ def predict():
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
+# Ejecutar la aplicación
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=8000, debug=True)
 
 
-if __name__ == "__main__":
-    uvicorn.run("main:app", host="0.0.0.0", port=8000)
 
 
 
