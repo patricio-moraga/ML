@@ -17,4 +17,4 @@ EXPOSE 8000
 CMD ["python", "app.py"]
 
 # ... (otras líneas) ...
-CMD uvicorn main:app --host 0.0.0.0 --port $PORT
+CMD uvicorn app:app --host 0.0.0.0 --port $PORT
