@@ -4,7 +4,7 @@ import time
 max_retries = 30
 for i in range(max_retries):
     try:
-        response = requests.get("http://api:5000/predict")
+        response = requests.get("http://api:8000/predict")
         if response.status_code == 200:
             print("API is ready. Running tests...")
             break
