@@ -13,7 +13,7 @@ escalador = joblib.load('escalador.pkl')
 app = Flask(__name__)
 
 # Ruta para verificar el estado del servicio
-@app.route('/predict', methods=['GET'])
+@app.route('/health', methods=['GET'])
 def health_check():
     return jsonify({"status": "ok", "message": "API Breast Cancer Logistic Regression activa"}), 200
 
@@ -53,6 +53,7 @@ port = int(os.environ.get("PORT", 8000))
 
 if __name__ == "__main__":
     uvicorn.run("main:app", host="0.0.0.0", port=port)
+
 
 
 
